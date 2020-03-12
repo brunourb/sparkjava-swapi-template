@@ -1,0 +1,11 @@
+br/com/senaigo/Main.class
+br/com/senaigo/model/User$UserBuilder.class
+br/com/senaigo/interfaces/IService.class
+br/com/senaigo/model/People.class
+br/com/senaigo/model/Vehicles.class
+br/com/senaigo/controller/PeopleController.class
+br/com/senaigo/model/Films.class
+br/com/senaigo/model/Species.class
+br/com/senaigo/model/User.class
+br/com/senaigo/interfaces/IController.class
+br/com/senaigo/model/Starships.class

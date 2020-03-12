@@ -1,0 +1,10 @@
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/model/User.java
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/interfaces/IController.java
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/model/Species.java
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/controller/PeopleController.java
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/model/People.java
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/model/Starships.java
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/interfaces/IService.java
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/Main.java
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/model/Vehicles.java
+/home/bruno/IdeaProjects/spark-rest/src/main/java/br/com/senaigo/model/Films.java

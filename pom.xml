@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>spark-rest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spark-core.version>2.8.0</spark-core.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.help.plugin.version>3.2.0</maven.help.plugin.version>
+        <lombok.version>1.18.12</lombok.version>
+        <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
+        <gson.version>2.8.6</gson.version>
+        <log4j.version>1.2.17</log4j.version>
+    </properties>
+
+    <name>Aplicação SparkJava com Rest</name>
+    <url>http://senaigo.com.br/faculdade-fatesg</url>
+    <description>Exemplo aplicao Rest usando Spark Java</description>
+
+    <organization>
+        <name>Faculdade Senai Fatesg</name>
+    </organization>
+
+    <distributionManagement>
+        <site>
+            <id>site</id>
+            <url>${project.baseUri}</url>
+        </site>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>brunourb</id>
+            <name>Bruno Urbano</name>
+            <email>brunourb@gmail.com</email>
+            <url>https://www.linkedin.com/in/brunourbano/</url>
+            <organization>Fatesg</organization>
+            <organizationUrl>http://senaigo.com.br/senai-fatesg</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>America/Sao_Paulo</timezone>
+            <properties>
+                <picUrl>https://goo.gl/qaw4YO</picUrl>
+            </properties>
+        </developer>
+    </developers>
+
+    <profiles>
+        <profile>
+            <id>desenv</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>stage</id>
+        </profile>
+        <profile>
+            <id>prod</id>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-help-plugin</artifactId>
+                <version>${maven.help.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>show-profiles</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>active-profiles</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin.version}</version>
+                <configuration>
+                    <locales>pt_BR</locales>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-core</artifactId>
+            <version>${spark-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+    </dependencies>
+
+
+</project>
