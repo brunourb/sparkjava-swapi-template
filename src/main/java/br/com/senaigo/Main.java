@@ -51,7 +51,9 @@ public class Main {
             });
             //path people
             path("/peoples",() ->{
+                //CREATE
                 post("",(request,response)->{
+
                     People people = new Gson().fromJson(request.body(),
                             People.class);
 
@@ -62,15 +64,26 @@ public class Main {
 
                     return response.body();
                 }); //C. reate
+                //READ
                 get("",(request,response)->{
 
                     List<People> peopleList = controller.read();
 
-                    //Content-Range, Content-Length
-                    response.header("Content-Range","10");
-                    response.header("Content-Length",String.valueOf(peopleList.size()));
-                    response.status(200);
-                    response.body(new Gson().toJson(peopleList));
+                    if(peopleList!=null && peopleList.size()>=10){
+                        //Content-Range, Content-Length
+                        response.header("Content-Type","application/json");
+//                        response.header("Content-Range","10");
+//                        response.header("Content-Length",String.valueOf(peopleList.size()));
+                        response.status(206);
+                        response.body(new Gson().toJson(peopleList));
+                    }
+                    else if(peopleList.size()>0){
+                        response.status(200);
+                        response.body(new Gson().toJson(peopleList));
+                    }
+                    else{
+                        response.status(204);
+                    }
 
                     return response.body();
                 }); // R. ead
@@ -79,11 +92,19 @@ public class Main {
                     Integer id = Integer.parseInt(request.params(":id"));
 
                     People people = controller.read(id);
-                    response.status(200);
-                    response.body(new Gson().toJson(people));
+
+                    if(peopleIsNull(people)){
+                        response.status(404);
+                        response.body(new Gson().toJson(people));
+                    }
+                    else{
+                        response.status(200);
+                        response.body(new Gson().toJson(people));
+                    }
 
                     return response.body();
                 }); // R. ead
+                //ATUALIZA TODO O REGISTRO (OBJETO)
                 put("",(request,response)->{
                     People people = new Gson().fromJson(request.body(),
                             People.class);
@@ -93,7 +114,8 @@ public class Main {
                     response.body(new Gson().toJson(p1));
 
                     return response.body();
-                }); //altera o objeto por completo.
+                });
+                //ATUALIZA PARTE DE UM OBJETO
                 patch("", (request,response)->{
                     People people = new Gson().fromJson(request.body(),
                             People.class);
@@ -114,6 +136,10 @@ public class Main {
             });
 
         });
+    }
+
+    private static boolean peopleIsNull(People people) {
+        return people==null;
     }
 
     /**

@@ -25,7 +25,18 @@ public class PeopleRepository implements IRepository<People, Integer> {
 
         log.info("Retornado X registros da camada de repository");
 
-        return new ArrayList<People>();
+        List<People> peopleList = new ArrayList<>();
+        for(int i=0;i<10;i++){
+            peopleList.add(People.builder()
+                    .name("Nome"+i)
+                    .created("created "+i)
+                    .birthYear("2000/02/01")
+                    .gender("male")
+                    .homeWorld("Earth").build());
+        }
+
+
+        return peopleList;
     }
 
     @Override
