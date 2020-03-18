@@ -7,8 +7,7 @@ import spark.Response;
 
 import java.util.List;
 
-public class PeopleController implements
-        IController<People, Integer> {
+public class PeopleController implements IController<People, Integer> {
 
     //Injetar camada de serviço
     private PeopleService service = new PeopleService();
